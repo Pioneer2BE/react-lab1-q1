@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Results = () => {
+const Results = (props) => {
+    
     return (
-        <section>
+        <section className={props.loanDetails.dspResults === false ? "d-none": ""}>
             <hr/>
             <h3>Your monthly Payments</h3>
             <div className="table-responsive">
-                <table class="table table-striped table-hover table-bordered table-light border-primary">
+                <table className="table table-striped table-hover table-bordered table-light border-primary">
                     <thead>
                         <tr>
                         <th scope="col">Loan Amount</th>
@@ -17,10 +18,10 @@ const Results = () => {
                     </thead>
                     <tbody>
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Sit</td>
-                        <td>Amet</td>
-                        <td>Consectetur</td>
+                        <th scope="row">{props.loanDetails.loanAmt}</th>
+                        <td>{props.loanDetails.interest}</td>
+                        <td>{props.loanDetails.term}</td>
+                        <td>{props.loanDetails.mthlyInstmnts}</td>
                         </tr>
                     </tbody>
                 </table>
